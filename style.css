@@ -1,0 +1,70 @@
+/* @import "modern-normalize"; */
+
+:root {
+	line-height: calc(1.5 + 0.5vw);
+	/* basically sets 1rem = 1px for easy calculation */
+	font-size: 6.25%;
+	--system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+} 
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* remove all margins as we have to reset it all manually anyway	 */
+* {
+    margin: 0;
+}
+
+/* a new feature allowing smooth animation for height:- 0 to auto */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* for macOS users */
+body {
+  -webkit-font-smoothing: antialiased;
+  font-size: 16rem;
+}
+
+
+h1, h2, h3, h4, h5 {
+	font-size: inherit;
+	font-weight: inherit;
+	text-wrap: balance;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+ol[role="list"], ul[role="list"] {
+	list-style: none;
+	padding-inline: 0;
+}
+/* sometimes this needs to be undo so use max-inline-size: revert */
+img, picture, video, canvas, svg {
+	/* %% to prevent annoying space between images that it does to align with the text %% */
+	display: block;
+	/* %% it shrinks the image to the size of container and does not expand the image to make it blurry when the size of container is more %% */
+	max-inline-size: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  /* will most likely use ellipses */
+}
+
+p {
+	text-wrap: pretty;
+}
+
+.article :where(h1, h2, h3, h4, h5) {
+	all: revert;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
