@@ -184,6 +184,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* gap: 2rem; */
     
 }
 
@@ -218,21 +219,38 @@ label:hover {
 input {
     width: 80%;
     /* border-radius: 7%; */
-    border: 1.5px solid  #d3d3d3;
+    border: 0.2rem solid  #d3d3d3;
     padding: 0.5rem 0.5rem;
     border-radius: 0.5rem;
     height: auto;
     box-shadow: 0 1px 2rem rgba(0,0,0,0.05);
+    background-color: #4B5563;
+    color: white;
+    transition: border-color 0.2s ease-in-out; 
 }
 
 input:focus {
     outline: none;    
     border-color: #6930c3;
-    /* box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3); */
+    
 }
 
 
 
+input.is-valid {
+  border: 0.3rem solid greenyellow;
+}
+
+
+input:user-invalid, input.is-invalid {
+  border: 0.3rem solid rgb(255, 47, 89);
+}
+
+
+input[type="text"]:user-valid, 
+input[type="number"]:user-valid {
+  border: 0.3rem solid greenyellow;
+}
 
 button[type="submit"] {
     display: block;              
@@ -283,4 +301,30 @@ p.login a:hover {
 ::selection {
   background-color: hsla(58, 100%, 49%, 0.6);
   color: white;
+}
+
+.error-message {
+  color: rgb(255, 47, 89);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease-out, padding 0.5s ease-out;
+
+
+}
+
+.error-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 100px; 
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;  
+  
 }

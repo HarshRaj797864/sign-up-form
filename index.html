@@ -31,31 +31,37 @@
                             <div class="names">
                                 <div class="first-name">
                                     <label for="first-name">FIRST NAME</label>
-                                    <input type="text" name="first-name" id="first-name">
+                                    <input type="text" name="first-name" id="first-name" required>
+                                    <div class="error-message" id="first-name-error"></div>
                                 </div>
                                 <div class="last-name">
                                     <label for="last-name">LAST NAME</label>
-                                    <input type="text" name="last-name" id="last-name">
+                                    <input type="text" name="last-name" id="last-name" required>
+                                    <div class="error-message" id="last-name-error"></div>
                                 </div>
                             </div>
                             <div class="contact">
                                 <div class="email">
                                     <label for="email">EMAIL</label>
-                                    <input type="email" name="email" id="email">
+                                    <input type="email" name="email" id="email" required>
+                                    <div class="error-message" id="email-error"></div>
                                 </div>
                                 <div class="number">
                                     <label for="number">PHONE NUMBER</label>
-                                    <input type="tel" name="number" id="number">
+                                    <input type="tel" name="number" id="number" pattern="[0-9]{10}" title="Please enter a 10-digit phone number (e.g., 1234567890)" required>
+                                    <div class="error-message" id="number-error"></div>
                                 </div>
                             </div>
                             <div class="passwd">
                                 <div class="password">
                                     <label for="password">PASSWORD</label>
-                                    <input type="password" name="password" id="password">
+                                    <input type="password" class="passwd" name="password" id="password"  title="" required>
+                                    <div class="error-message" id="password-error"></div>
                                 </div>
                                 <div class="password confirm">
                                     <label for="cpassword">CONFIRM PASSWORD</label>
-                                    <input type="password" name="cpassword" id="cpassword">
+                                    <input type="password" class="passwd" name="cpassword" id="cpassword"  title="" required>
+                                    <div class="error-message" id="cpassword-error"></div>
                                 </div>
                             </div>
                         </div>
@@ -72,5 +78,6 @@
             </div>
         </div>
     </div>
+    <script src="script.js" defer="defer"></script>
 </body>
 </html>
