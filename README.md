@@ -1,6 +1,3 @@
-Here’s your **clean, polished, image-free README.md** — ready to use directly in your GitHub repository 👇
-
-````markdown
 # Sign-Up Form
 
 A responsive and accessible sign-up form page built with HTML, CSS, and JavaScript.  
@@ -10,7 +7,15 @@ This project is part of **The Odin Project** curriculum.
 ---
 
 ## 🌟 Features
+---
 
+## 🌟 Features
+
+### 🧩 Layout & Design
+- **Responsive two-column layout** that adapts to different screen sizes (optimized for desktop).
+- **Modern, clean styling** using custom fonts, colors, and CSS variables.
+- **Clear focus indicators** and accessible color contrast.
+- **Custom text selection color** for a unique user experience.
 ### 🧩 Layout & Design
 - **Responsive two-column layout** that adapts to different screen sizes (optimized for desktop).
 - **Modern, clean styling** using custom fonts, colors, and CSS variables.
@@ -59,6 +64,40 @@ This project is part of **The Odin Project** curriculum.
 ## 🛠️ Setup Instructions
 
 To run this project locally:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/sign-up-form.git
+````
+
+2. **Navigate to the project directory**
+
+   ```bash
+   cd sign-up-form
+   ```
+3. **Open the project**
+
+   * Open `index.html` directly in your web browser.
+
+---
+
+## 🧾 Acknowledgements
+
+* Project idea and structure inspired by **The Odin Project** – *Sign-Up Form* assignment.
+* Special thanks to the open-source community for CSS/JS inspiration.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+*Created as part of The Odin Project curriculum to practice form design, validation, and front-end best practices.*
+
+```
+
 
 1. **Clone the repository**
    ```bash
