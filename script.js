@@ -153,19 +153,15 @@ allInputs.forEach(input => {
     });
 });
 
-
-
+// --- FORM SUBMISSION LOGIC ---
 const form = document.querySelector('form');
 
 form.addEventListener('submit', function(event) {
-    
     event.preventDefault();
 
-    
-    
+    // 1. Force Validation on All Fields
     allInputs.forEach(input => {
         input.classList.add('interacted');
-        
         switch(input.id) {
             case 'first-name': validateRequiredTextField(firstNameInput, firstNameErrorContainer); break;
             case 'last-name': validateRequiredTextField(lastNameInput, lastNameErrorContainer); break;
@@ -176,15 +172,12 @@ form.addEventListener('submit', function(event) {
         }
     });
 
-    
-    
+    // 2. Check for Errors
     const hasErrors = document.querySelectorAll('.is-invalid').length > 0;
 
     if (!hasErrors) {
-        
         const formData = new FormData(form);
 
-        
         fetch('signup.php', {
             method: 'POST',
             body: formData
@@ -192,9 +185,9 @@ form.addEventListener('submit', function(event) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(data.message); 
-                form.reset();        
-                
+                alert(data.message);
+                form.reset();
+                // Remove validation classes
                 allInputs.forEach(input => {
                     input.classList.remove('interacted', 'is-valid', 'is-invalid');
                 });
@@ -207,7 +200,6 @@ form.addEventListener('submit', function(event) {
             alert('A network error occurred. Please try again.');
         });
     } else {
-        
         console.log('Form has errors, not submitting.');
     }
 });
