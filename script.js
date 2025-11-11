@@ -152,3 +152,62 @@ allInputs.forEach(input => {
         }
     });
 });
+
+
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(event) {
+    
+    event.preventDefault();
+
+    
+    
+    allInputs.forEach(input => {
+        input.classList.add('interacted');
+        
+        switch(input.id) {
+            case 'first-name': validateRequiredTextField(firstNameInput, firstNameErrorContainer); break;
+            case 'last-name': validateRequiredTextField(lastNameInput, lastNameErrorContainer); break;
+            case 'email': validateEmail(); break;
+            case 'number': validatePhoneNumber(); break;
+            case 'password': validatePrimaryPassword(); break;
+            case 'cpassword': validateConfirmPassword(); break;
+        }
+    });
+
+    
+    
+    const hasErrors = document.querySelectorAll('.is-invalid').length > 0;
+
+    if (!hasErrors) {
+        
+        const formData = new FormData(form);
+
+        
+        fetch('signup.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message); 
+                form.reset();        
+                
+                allInputs.forEach(input => {
+                    input.classList.remove('interacted', 'is-valid', 'is-invalid');
+                });
+            } else {
+                alert('Server Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('A network error occurred. Please try again.');
+        });
+    } else {
+        
+        console.log('Form has errors, not submitting.');
+    }
+});
